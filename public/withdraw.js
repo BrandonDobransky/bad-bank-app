@@ -46,6 +46,7 @@ function Withdraw(){
       });
     }
   
+  //not working 
   
     function validate(field, label) {
       if (!field) {
