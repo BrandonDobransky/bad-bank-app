@@ -46,8 +46,7 @@ function Withdraw(){
       });
     }
   
-  //not working 
-  
+  //not working
     function validate(field, label) {
       if (!field) {
         setStatus('Error:' + label);
