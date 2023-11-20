@@ -1,9 +1,7 @@
-//cannot figure out how to get page to recognize person logged in 
 function Login(){
     const [show, setShow]     = React.useState(true);
-    const [status, setStatus] = React.useState('');    
+    const [status, setStatus] = React.useState('');
     
-  
     return (
       <Card
         bgcolor="info"
@@ -18,6 +16,7 @@ function Login(){
   }
   
   function LoginMsg(props){
+    const [name] = React.useState('');  
     return(<>
       <h5>Welcome Back {name}!</h5>
       <button type="submit" 

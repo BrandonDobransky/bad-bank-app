@@ -33,17 +33,6 @@ function find(email){
     })
 }
 
-// find user account
-function findOne(email){
-    return new Promise((resolve, reject) => {    
-        const customers = db
-            .collection('users')
-            .findOne({email: email})
-            .then((doc) => resolve(doc))
-            .catch((err) => reject(err));    
-    })
-}
-
 // update - deposit/withdraw amount
 function update(email, amount){
     return new Promise((resolve, reject) => {    
@@ -73,4 +62,4 @@ function all(){
 }
 
 
-module.exports = {create, findOne, find, update, all};
+module.exports = {create, find, update, all};

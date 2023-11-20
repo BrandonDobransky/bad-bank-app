@@ -67,17 +67,6 @@ app.get('/account/find/:email', function (req, res) {
     });
 });
 
-// find one user by email - alternative to find
-app.get('/account/findOne/:email', function (req, res) {
-
-    dal.findOne(req.params.email).
-        then((user) => {
-            console.log(user);
-            res.send(user);
-    });
-});
-
-
 // update - deposit/withdraw amount
 app.get('/account/update/:email/:amount', function (req, res) {
 
