@@ -37,12 +37,19 @@ function DepositForm(props){
     .then(text => {
         try {
             const data = JSON.parse(text);
-            props.setStatus(JSON.stringify(data.value));
+            props.setStatus(`$${amount} has been deposited into your account!`);
             props.setShow(false);
             console.log('JSON:', data);
         } catch(err) {
-            props.setStatus('Deposit failed')
-            console.log('err:', text);
+          if (isNaN(Number) === true) {
+            props.setStatus('Please enter a numeric value');
+            setTimeout(() => setAmount(''),3000);
+            return false;
+          };
+          return true;
+          
+          props.setStatus('Deposit failed')
+          console.log('err:', text);
         }
     });
   }
