@@ -16,12 +16,12 @@ function Deposit(){
   )
 }
 
-function DepositMsg(props,validate){
+function DepositMsg(props){
   return (<>
     <h5>Thank you for your Deposit!</h5>
     <button type="submit" 
       className="btn btn-dark" 
-      onClick={() => props.setShow(true)}>
+      onClick={() => props.setShow(true) /* cant clear message after successful deposit */ && props.setStatus('')}>
         Make another deposit
     </button>
   </>);
@@ -43,34 +43,18 @@ function DepositForm(props){
         } catch(err) {
           if (isNaN(Number) === true) {
             props.setStatus('Please enter a numeric value');
-            setTimeout(() => setAmount(''),3000);
+            setTimeout(() => setAmount(''),3000)
             return false;
           };
+          /*not working
+          if (Number<0) {
+            props.setStatus('Please enter a positive deposit amount')
+            setTimeout(() => setAmount(''),3000);
+            return false;
+          } */
           return true;
-          
-          props.setStatus('Deposit failed')
-          console.log('err:', text);
         }
     });
-  }
-
-  function validate(field, label){
-    if (!field) {
-      alert('Please enter deposit amount');
-      setTimeout(() => setAmount(''),3000);
-      return false;
-    }
-    if (isNaN(field) === true) {
-      alert('Please enter a numeric value');
-      setTimeout(() => setAmount(''),3000);
-      return false;
-    };
-    if (field < 0) {
-      alert('Amount entered is not a valid request');
-      setTimeout(() => setAmount(''),3000);
-      return false;
-    };
-  return true;
   }
 
   return(<>
