@@ -1,4 +1,5 @@
 function AllData(){
+  
     const [data, setData] = React.useState('');
 
     React.useEffect(() => {
@@ -12,9 +13,10 @@ function AllData(){
     }, []);
 
     return (
-      <>
-     <h1>All Data</h1>
-     {data}
-      </>
+      <Card
+      txtcolor= 'dark'
+      header = "All Data"
+      text = {data}
+      />
     );
   }
