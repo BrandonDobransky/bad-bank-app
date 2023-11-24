@@ -10,7 +10,7 @@ function Withdraw(){
         status={status}
         body={show ? 
           <WithdrawForm setShow={setShow} setStatus={setStatus}/> :
-          <WithdrawMsg setShow={setShow}/>}
+          <WithdrawMsg setShow={setShow} setStatus={setStatus}/>}
       />
     )
   }
@@ -20,7 +20,7 @@ function Withdraw(){
       <h5>Your withdrawl was successful!</h5>
       <button type="submit" 
         className="btn btn-dark" 
-        onClick={() => props.setShow(true)}>
+        onClick={function(event){props.setShow(true); props.setStatus('');}}>
           Make another Withdrawl
       </button>
     </>);
@@ -36,34 +36,19 @@ function Withdraw(){
       .then(text => {
           try {
               const data = JSON.parse(text);
-              props.setStatus(JSON.stringify(data.value));
+              props.setStatus(`$${amount} has been withdrawn from your account!`);
               props.setShow(false);
               console.log('JSON:', data);
-          } catch(err) {
-              props.setStatus('Deposit failed')
-              console.log('err:', text);
+          } catch(errs) {
+            if (amount =!Number) { //not working//
+              props.setStatus('Please enter a numeric value');
+              setTimeout(() => setAmount(''),3000);
+              return false;
+            }
+            return true;
           }
       });
     }
-  
-  //not working
-    function validate(field, label) {
-      if (!field) {
-        setStatus('Error:' + label);
-        setTimeout(() => setStatus(''),3000);
-        return false;
-      }
-      if (balance - amount < 0) {
-        setStatus('Error: Cannot withdraw more than is in the account')
-        return false;
-      }
-      if (amount =!Number) {
-        setStatus('Error: Please enter a valid number');
-        return false;
-      }
-      return true;
-  }
-  
   
     return(<>
   

@@ -40,10 +40,10 @@ function DepositForm(props){
             props.setStatus(`$${amount} has been deposited into your account!`);
             props.setShow(false);
             console.log('JSON:', data);
-        } catch(errs) {
+        } catch(err) {
           if (isNaN(Number) === true) {
             props.setStatus('Please enter a numeric value');
-            setTimeout(() => setAmount(''),3000)
+            setTimeout(() => setAmount(''),3000);
             return false;
           }
           /* not working 
