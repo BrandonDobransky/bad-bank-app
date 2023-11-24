@@ -11,7 +11,7 @@ function Deposit(){
       status={status}
       body={show ? 
         <DepositForm setShow={setShow} setStatus={setStatus}/> :
-        <DepositMsg setShow={setShow}/>}
+        <DepositMsg setShow={setShow} setStatus={setStatus}/>}
     />
   )
 }
@@ -21,7 +21,7 @@ function DepositMsg(props){
     <h5>Thank you for your Deposit!</h5>
     <button type="submit" 
       className="btn btn-dark" 
-      onClick={() => props.setShow(true) /* cant clear message after successful deposit */ && props.setStatus('')}>
+      onClick={function(event){props.setShow(true); props.setStatus('');}}>
         Make another deposit
     </button>
   </>);
@@ -31,7 +31,7 @@ function DepositForm(props){
   const [email, setEmail]   = React.useState('');
   const [amount, setAmount] = React.useState(''); 
 
-  function handle(){
+  function handle(Number){
     fetch(`/account/update/${email}/${amount}`)
     .then(response => response.text())
     .then(text => {
@@ -40,15 +40,15 @@ function DepositForm(props){
             props.setStatus(`$${amount} has been deposited into your account!`);
             props.setShow(false);
             console.log('JSON:', data);
-        } catch(err) {
+        } catch(errs) {
           if (isNaN(Number) === true) {
             props.setStatus('Please enter a numeric value');
             setTimeout(() => setAmount(''),3000)
             return false;
-          };
-          /*not working
-          if (Number<0) {
-            props.setStatus('Please enter a positive deposit amount')
+          }
+          /* not working 
+          if (isNaN(Number < 0) === true) {
+            props.setStatus('Please enter a positive deposit amount');
             setTimeout(() => setAmount(''),3000);
             return false;
           } */
