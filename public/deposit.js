@@ -45,8 +45,8 @@ function DepositForm(props){
             setTimeout(() => setAmount(''),3000);
             return false;
           }
-          /* not working 
-          if (isNaN(Number < 0) === true) {
+          /* not working
+          if (Number(e.target.value) <= 0) {
             props.setStatus('Please enter a positive deposit amount');
             setTimeout(() => setAmount(''),3000);
             return false;
