@@ -30,7 +30,7 @@ function Withdraw(){
     const [email, setEmail]   = React.useState('');
     const [amount, setAmount] = React.useState(''); 
   
-    function handle(){
+    function handle(Number){
       fetch(`/account/update/${email}/-${amount}`)
       .then(response => response.text())
       .then(text => {
@@ -39,8 +39,9 @@ function Withdraw(){
               props.setStatus(`$${amount} has been withdrawn from your account!`);
               props.setShow(false);
               console.log('JSON:', data);
-          } catch(errs) {
-            if (amount =!Number) { //not working//
+          } catch(err) {
+             //none of these are working//
+            if (isNaN(Number) === true) {
               props.setStatus('Please enter a numeric value');
               setTimeout(() => setAmount(''),3000);
               return false;
@@ -68,9 +69,7 @@ function Withdraw(){
   
       <button type="submit" 
         className="btn btn-dark" 
-        onClick={handle}>
-          Withdraw
-      </button>
+        onClick={handle}>Withdraw</button>
   
     </>);
   }

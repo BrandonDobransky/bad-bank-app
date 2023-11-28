@@ -18,7 +18,7 @@ function Login(){
   function LoginMsg(props){
     const [name] = React.useState('');  
     return(<>
-      <h5>Welcome Back {name}!</h5>
+      <h5>Welcome Back {props.name}!</h5>
       <button type="submit" 
         className="btn btn-dark" 
         onClick={() => props.setShow(true)}>
@@ -67,6 +67,7 @@ function Login(){
         onChange={e => setPassword(e.currentTarget.value)}/><br/>
   
       <button type="submit" className="btn btn-dark" onClick={handle}>Log in</button>
+      <button type="logOut" className="btn btn-dark" onClick={handle}>LogOut</button>
      
     </>);
   }  
