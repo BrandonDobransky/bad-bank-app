@@ -16,13 +16,13 @@ function Login(){
   }
   
   function LoginMsg(props){
-    const [name] = React.useState('');  
+    const ctx = React.useContext(UserContext);  
     return(<>
-      <h5>Welcome Back {props.name}!</h5>
+      <h5>Welcome Back {ctx.name}!</h5>
       <button type="submit" 
         className="btn btn-dark" 
         onClick={() => props.setShow(true)}>
-          Log in
+          Log out
       </button>
     </>);
   }
@@ -67,7 +67,6 @@ function Login(){
         onChange={e => setPassword(e.currentTarget.value)}/><br/>
   
       <button type="submit" className="btn btn-dark" onClick={handle}>Log in</button>
-      <button type="logOut" className="btn btn-dark" onClick={handle}>LogOut</button>
      
     </>);
   }  
