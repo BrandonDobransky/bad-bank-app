@@ -41,7 +41,7 @@ function Withdraw(){
               console.log('JSON:', data);
           } catch(err) {
              //none of these are working//
-            if (isNaN(Number) === true) {
+            if (!Number) {
               props.setStatus('Please enter a numeric value');
               setTimeout(() => setAmount(''),3000);
               return false;
