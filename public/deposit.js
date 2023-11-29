@@ -45,12 +45,12 @@ function DepositForm(props){
             setTimeout(() => setAmount(''),3000);
             return false;
           }
-          /* not working
-          if (Number(e.target.value) <= 0) {
+          /*
+          if (!Number || Number.length < 1) {
             props.setStatus('Please enter a positive deposit amount');
             setTimeout(() => setAmount(''),3000);
             return false;
-          } */
+          }  */
           return true;
         }
     });
