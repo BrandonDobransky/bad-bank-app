@@ -40,7 +40,7 @@ function DepositForm(props){
             props.setShow(false);
             console.log('JSON:', data);
         } catch(err) {
-          if (isNaN(Number) === true) {
+          if (isNaN() === true) {
             props.setStatus('Please enter a numeric value');
             setTimeout(() => setAmount(''),3000);
             return false;
