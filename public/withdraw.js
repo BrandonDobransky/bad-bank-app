@@ -26,29 +26,29 @@ function Withdraw(){
     </>);
   }
   
+  // cannot get validation errors to work
+  
   function WithdrawForm(props){
     const [email, setEmail]   = React.useState('');
     const [amount, setAmount] = React.useState(''); 
   
     function handle(Number){
       fetch(`/account/update/${email}/-${amount}`)
-      .then(response => response.text())
-      .then(text => {
-          try {
-              const data = JSON.parse(text);
-              props.setStatus(`$${amount} has been withdrawn from your account!`);
-              props.setShow(false);
-              console.log('JSON:', data);
-          } catch(err) {
-             //none of these are working//
-            if (!Number == true) {  //if (isNan() === true) also does not work
-              props.setStatus('Please enter a numeric value');
-              setTimeout(() => setAmount(''),3000);
-              return false;
-            }
-            return true;
+      .then((response) => response.text())
+      .then((text) => {
+          const data = JSON.parse(text);
+            props.setStatus(`$${amount} has been withdrawn from your account!`);
+            props.setShow(false);
+            console.log('JSON:', data);
+        })
+        .catch((error) => {
+          if (isNan(Number(amount))) {
+            props.setStatus('Please enter a numeric value');
+            setTimeout(() => setAmount(''),3000);
+            return false;
           }
-      });
+          return true;
+        });
     }
   
     return(<>
