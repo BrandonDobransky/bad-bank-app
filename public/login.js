@@ -1,3 +1,8 @@
+//trouble with creating context
+//import UserContext from '../userContext.js';
+//import {useContext} from 'react';
+
+
 function Login(){
     const [show, setShow]     = React.useState(true);
     const [status, setStatus] = React.useState('');
@@ -16,7 +21,7 @@ function Login(){
   }
   
   function LoginMsg(props){
-    const ctx = React.useContext(UserContext);  
+    const ctx = React.useContext(UserContext);
     return(<>
       <h5>Welcome Back {ctx.name}!</h5>
       <button type="submit" 
@@ -69,3 +74,5 @@ function Login(){
      
     </>);
   }  
+
+  //export default Login;
