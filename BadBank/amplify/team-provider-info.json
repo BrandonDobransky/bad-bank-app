@@ -1,0 +1,29 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-badbank-dev-150348-authRole",
+      "UnauthRoleArn": "arn:aws:iam::812444004239:role/amplify-badbank-dev-150348-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::812444004239:role/amplify-badbank-dev-150348-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-badbank-dev-150348-deployment",
+      "UnauthRoleName": "amplify-badbank-dev-150348-unauthRole",
+      "StackName": "amplify-badbank-dev-150348",
+      "StackId": "arn:aws:cloudformation:us-east-1:812444004239:stack/amplify-badbank-dev-150348/bd1bd130-953b-11ee-bd57-0e10e785e9b5",
+      "AmplifyAppId": "dmp4c61hi5ltn"
+    },
+    "categories": {
+      "api": {
+        "badbank": {}
+      },
+      "auth": {
+        "badbankc2b00fde": {}
+      },
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "dmp4c61hi5ltn",
+          "type": "manual"
+        }
+      }
+    }
+  }
+}
