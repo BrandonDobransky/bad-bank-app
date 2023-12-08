@@ -27,7 +27,7 @@ function DepositMsg(props){
 } 
 
 function DepositForm(props){
-  const [email, setEmail]   = React.useState('');
+  const [email, setEmail]   = React.useState(''); //context here -logged in status
   const [amount, setAmount] = React.useState(''); 
 
   function handle(Number){

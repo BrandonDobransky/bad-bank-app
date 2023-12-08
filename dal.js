@@ -21,7 +21,7 @@ function create(name, email, password){
     })
 }
 
-// find user account
+//  login
 function find(email){
     return new Promise((resolve, reject) => {    
         const customers = db
